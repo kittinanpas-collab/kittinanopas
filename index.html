@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - กิตตินันท์ โอภาส</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: #2d3748;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            animation: fadeInDown 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            color: #2d3748;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .info-item {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-item:hover::before {
+            opacity: 1;
+        }
+
+        .info-item:hover {
+            transform: translateX(5px);
+            border-left-width: 8px;
+        }
+
+        .info-label {
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-item > div:last-child {
+            font-size: 1.1em;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #667eea, #764ba2, #f093fb);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 30px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 8px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.3);
+        }
+
+        .timeline-school {
+            font-size: 1.4em;
+            color: #2d3748;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .timeline-period {
+            color: #667eea;
+            font-size: 1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item p {
+            color: #718096;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            padding: 30px 20px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .skill-card h3 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover h3 {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .skill-card p {
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 1.05em;
+            transition: color 0.3s ease;
+        }
+
+        .skill-card:hover p {
+            color: #ffffff;
+        }
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 35px 25px;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .achievement-card:hover::before {
+            opacity: 1;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5);
+        }
+
+        .achievement-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .achievement-card:hover .achievement-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .achievement-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .achievement-card p {
+            opacity: 0.95;
+            line-height: 1.6;
+            font-size: 1.05em;
+        }
+
+        .certificate-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .certificate-item {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .certificate-placeholder {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.15));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+        }
+
+        .certificate-placeholder:hover::before {
+            width: 200%;
+            height: 200%;
+        }
+
+        .certificate-placeholder:hover {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.25));
+        }
+
+        .upload-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            opacity: 0.7;
+            color: #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificate-placeholder:hover .upload-icon {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+
+        .certificate-placeholder p {
+            color: #667eea;
+            font-size: 1em;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificate-title {
+            padding: 20px;
+            text-align: center;
+            font-weight: 700;
+            color: #2d3748;
+            background: linear-gradient(to right, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            font-size: 1.05em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            color: #4a5568;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+
+        footer p:first-child {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        footer p:last-child {
+            color: #718096;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            header {
+                padding: 50px 25px;
+            }
+
+            .info-grid,
+            .skills-grid,
+            .achievements,
+            .certificate-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection color */
+        ::selection {
+            background: rgba(102, 126, 234, 0.3);
+            color: #2d3748;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="รูป1.png" alt="" sizes="30" srcset="">
+            <h1>กิตตินันท์ โอภาส</h1>
+            <p class="subtitle">ยินดีต้อนรับสู่ Portfolio ของผม</p>
+        </header>
+
+        <div class="section">
+            <h2>ข้อมูลส่วนตัว</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">ชื่อ-นามสกุล</div>
+                    <div>กิตตินันท์ โอภาส</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">วันเกิด</div>
+                    <div>26 มกราคม พ.ศ. 2550</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">เบอร์โทรศัพท์</div>
+                    <div>065-025-4301</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>ประวัติการศึกษา</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-school">โรงเรียนบ้านเขาหัวนา</div>
+                    <div class="timeline-period">อนุบาล - ประถมศึกษาปีที่ 3</div>
+                    <p>โรงเรียนแห่งแรกที่เริ่มต้นการศึกษา เรียนตั้งแต่ระดับอนุบาลจนถึงประถมศึกษาปีที่ 3</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-school">โรงเรียนอนุบาลวิหารแดง</div>
+                    <div class="timeline-period">จังหวัดสระบุรี อำเภอวิหารแดง</div>
+                    <p>ย้ายมาศึกษาต่อที่จังหวัดสระบุรี เรียนต่อในระดับประถมศึกษา</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-school">โรงเรียนปิยชาติพัฒนา</div>
+                    <div class="timeline-period">มัธยมศึกษาปีที่ 1 - 6</div>
+                    <p>ศึกษาต่อระดับมัธยมศึกษาจนจบการศึกษาชั้นมัธยมศึกษาปีที่ 6</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-school">วิทยาลัยเทคนิคนครนายก</div>
+                    <div class="timeline-period">ระดับ ปวส. 1</div>
+                    <p>กำลังศึกษาในระดับประกาศนียบัตรวิชาชีพชั้นสูง</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>ทักษะ</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>💻</h3>
+                    <p>คอมพิวเตอร์</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📚</h3>
+                    <p>การเรียนรู้</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🤝</h3>
+                    <p>การทำงานร่วมกัน</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🔧</h3>
+                    <p>ประกอบคอมพิวเตอร์</p>
+                </div>
+                <div class="skill-card">
+                    <h3>💡</h3>
+                    <p>ความคิดสร้างสรรค์</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>ผลงานและตำแหน่ง</h2>
+            <div class="achievements">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎓</div>
+                    <h3>ประธานนักเรียน</h3>
+                    <p>ตำแหน่งความเป็นผู้นำในโรงเรียน</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">👥</div>
+                    <h3>หัวหน้าห้อง</h3>
+                    <p>ผู้นำและดูแลห้องเรียน</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">⚜️</div>
+                    <h3>คนคุ้มลูกเสือ</h3>
+                    <p>กิจกรรมลูกเสือและอาสาสมัคร</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>เกียรติบัตรและรางวัล</h2>
+            <div class="certificate-gallery">
+                <div class="certificate-item">
+                    <div class="certificate-placeholder">
+                        <div class="upload-icon">📜</div>
+                        <p>เพิ่มเกียรติบัตร 1</p>
+                        <img src="3.png" alt="">
+                    </div>
+                    <p class="certificate-title">ชื่อเกียรติบัตร</p>
+                </div>
+
+                <div class="certificate-item">
+                    <div class="certificate-placeholder">
+                        <div class="upload-icon">🏆</div>
+                        <p>เพิ่มเกียรติบัตร 2</p>
+                        <img src="4.png" alt="">
+                    </div>
+                    <p class="certificate-title">ชื่อเกียรติบัตร</p>
+                </div>
+
+                <div class="certificate-item">
+                    <div class="certificate-placeholder">
+                        <div class="upload-icon">🎖️</div>
+                        <p>เพิ่มเกียรติบัตร 3</p>
+                        <img src="5.png" alt="">
+                    </div>
+                    <p class="certificate-title">ชื่อเกียรติบัตร</p>
+                </div>
+
+                <div class="certificate-item">
+                    <div class="certificate-placeholder">
+                        <div class="upload-icon">⭐</div>
+                        <p>เพิ่มเกียรติบัตร 4</p>
+                        <img src="6.png" alt="">
+                    </div>
+                    <p class="certificate-title">ชื่อเกียรติบัตร</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 กิตตินันท์ โอภาส - Portfolio</p>
+            <p>ติดต่อ: 065-025-4301</p>
+        </footer>
+    </div>
+</body>
+</html>
